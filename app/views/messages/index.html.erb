@@ -17,15 +17,26 @@
   </div>
 </div>
 
-<%= form_for(@message) do |f| %>
+<%= form_for @message, html: {class: "form-horizontal"} do |f| %>
   <div class="form-group">
-    <label for="message_name">名前：</label>
-    <!-- #2行から1行にした -->
-    <%= f.text_area :name, rows: "1", class: "form-control", placeholder: "お名前を入力" %>
+    <%= f.label :name, "名前", class: "col-md-2 control-label" %>
+    <div class="col-md-10">
+      <!-- 1行にする -->
+      <%= f.text_area :name, rows: "1",  class: "form-control", placeholder: "お名前を入力" %>
+    </div>
   </div>
+  
   <div class="form-group">
-    <label for="message_body">内容：</label>
-    <%= f.text_area :body, rows: "1", class: "form-control", placeholder: "メッセージ内容を入力" %>
+    <%= f.label :body, "内容", class: "col-md-2 control-label" %>
+    <div class="col-md-10">
+      <%= f.text_area :body, rows: "1", class: "form-control",  placeholder: "メッセージ内容を入力" %>
+    </div>
   </div>
-  <%= f.submit class: "btn btn-sm btn-primary" %>
+  
+  <div class="form-group">
+    <!-- textareaとボタンの先頭が同じようにするため -->
+    <div class="col-md-offset-2 col-md-10">
+      <%= f.submit class: "btn btn-sm btn-primary" %>
+    </div>
+  </div>
 <% end %>
