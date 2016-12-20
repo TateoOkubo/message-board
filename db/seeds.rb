@@ -5,3 +5,11 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+
+50.times do
+  Message.create(name: "hoge", body: "fuga")
+end
+
+# rake db:migrate:reset
+# rake db:seed
